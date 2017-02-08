@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69AF6A33E072E08B2FBBAFBE /* Pods_WeightTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B652D3C52FD9244A2156EF73 /* Pods_WeightTracker.framework */; };
 		88E3B8F41E4A19D900478A52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B8F31E4A19D900478A52 /* AppDelegate.swift */; };
-		88E3B8F61E4A19D900478A52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B8F51E4A19D900478A52 /* ViewController.swift */; };
-		88E3B8F91E4A19D900478A52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E3B8F71E4A19D900478A52 /* Main.storyboard */; };
+		88E3B8F61E4A19D900478A52 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B8F51E4A19D900478A52 /* LoginRegisterViewController.swift */; };
 		88E3B8FB1E4A19D900478A52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E3B8FA1E4A19D900478A52 /* Assets.xcassets */; };
 		88E3B8FE1E4A19D900478A52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E3B8FC1E4A19D900478A52 /* LaunchScreen.storyboard */; };
 		88E3B9091E4A19D900478A52 /* WeightTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B9081E4A19D900478A52 /* WeightTrackerTests.swift */; };
 		88E3B9141E4A19D900478A52 /* WeightTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B9131E4A19D900478A52 /* WeightTrackerUITests.swift */; };
+		88E3B9251E4A1DF100478A52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B9241E4A1DF100478A52 /* ViewController.swift */; };
+		88E75A1F1E4A8600008BCDD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88E75A1E1E4A8600008BCDD2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8448E8F1A3B3DC774F77C5A8 /* Pods_WeightTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E3B8F01E4A19D900478A52 /* WeightTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E3B8F31E4A19D900478A52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88E3B8F51E4A19D900478A52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		88E3B8F81E4A19D900478A52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88E3B8F51E4A19D900478A52 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
 		88E3B8FA1E4A19D900478A52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88E3B8FD1E4A19D900478A52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88E3B8FF1E4A19D900478A52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +49,12 @@
 		88E3B90F1E4A19D900478A52 /* WeightTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E3B9131E4A19D900478A52 /* WeightTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerUITests.swift; sourceTree = "<group>"; };
 		88E3B9151E4A19D900478A52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88E3B9241E4A1DF100478A52 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88E75A1E1E4A8600008BCDD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99EEC1C35C64ABEB398073C9 /* Pods-WeightTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeightTracker/Pods-WeightTracker.release.xcconfig"; sourceTree = "<group>"; };
+		B652D3C52FD9244A2156EF73 /* Pods_WeightTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A98764AD2660035031BBA2 /* Pods_WeightTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA3F7A794997E3F7D99E18CF /* Pods-WeightTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeightTracker/Pods-WeightTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69AF6A33E072E08B2FBBAFBE /* Pods_WeightTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050A4A3D2A03AC4119A87CE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B652D3C52FD9244A2156EF73 /* Pods_WeightTracker.framework */,
+				8448E8F1A3B3DC774F77C5A8 /* Pods_WeightTrackerTests.framework */,
+				D2A98764AD2660035031BBA2 /* Pods_WeightTrackerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		88E3B8E71E4A19D900478A52 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +100,8 @@
 				88E3B9071E4A19D900478A52 /* WeightTrackerTests */,
 				88E3B9121E4A19D900478A52 /* WeightTrackerUITests */,
 				88E3B8F11E4A19D900478A52 /* Products */,
+				F8430B992CEFB2D7670E4D26 /* Pods */,
+				050A4A3D2A03AC4119A87CE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +118,14 @@
 		88E3B8F21E4A19D900478A52 /* WeightTracker */ = {
 			isa = PBXGroup;
 			children = (
+				88E3B9231E4A1A6F00478A52 /* Controller */,
+				88E3B9221E4A1A6400478A52 /* View */,
+				88E3B9211E4A1A5500478A52 /* Model */,
 				88E3B8F31E4A19D900478A52 /* AppDelegate.swift */,
-				88E3B8F51E4A19D900478A52 /* ViewController.swift */,
-				88E3B8F71E4A19D900478A52 /* Main.storyboard */,
 				88E3B8FA1E4A19D900478A52 /* Assets.xcassets */,
 				88E3B8FC1E4A19D900478A52 /* LaunchScreen.storyboard */,
 				88E3B8FF1E4A19D900478A52 /* Info.plist */,
+				88E75A1E1E4A8600008BCDD2 /* GoogleService-Info.plist */,
 			);
 			path = WeightTracker;
 			sourceTree = "<group>";
@@ -125,6 +148,38 @@
 			path = WeightTrackerUITests;
 			sourceTree = "<group>";
 		};
+		88E3B9211E4A1A5500478A52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		88E3B9221E4A1A6400478A52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		88E3B9231E4A1A6F00478A52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				88E3B8F51E4A19D900478A52 /* LoginRegisterViewController.swift */,
+				88E3B9241E4A1DF100478A52 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F8430B992CEFB2D7670E4D26 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA3F7A794997E3F7D99E18CF /* Pods-WeightTracker.debug.xcconfig */,
+				99EEC1C35C64ABEB398073C9 /* Pods-WeightTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88E3B9181E4A19D900478A52 /* Build configuration list for PBXNativeTarget "WeightTracker" */;
 			buildPhases = (
+				41EA2F6157347AAA47B5FFB0 /* [CP] Check Pods Manifest.lock */,
 				88E3B8EC1E4A19D900478A52 /* Sources */,
 				88E3B8ED1E4A19D900478A52 /* Frameworks */,
 				88E3B8EE1E4A19D900478A52 /* Resources */,
+				EF3DE15D0E94F215C24E092A /* [CP] Embed Pods Frameworks */,
+				FB38C26112E49A9A1738BBBC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,7 +295,7 @@
 			files = (
 				88E3B8FE1E4A19D900478A52 /* LaunchScreen.storyboard in Resources */,
 				88E3B8FB1E4A19D900478A52 /* Assets.xcassets in Resources */,
-				88E3B8F91E4A19D900478A52 /* Main.storyboard in Resources */,
+				88E75A1F1E4A8600008BCDD2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,12 +315,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41EA2F6157347AAA47B5FFB0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EF3DE15D0E94F215C24E092A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeightTracker/Pods-WeightTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB38C26112E49A9A1738BBBC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeightTracker/Pods-WeightTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		88E3B8EC1E4A19D900478A52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88E3B8F61E4A19D900478A52 /* ViewController.swift in Sources */,
+				88E3B9251E4A1DF100478A52 /* ViewController.swift in Sources */,
+				88E3B8F61E4A19D900478A52 /* LoginRegisterViewController.swift in Sources */,
 				88E3B8F41E4A19D900478A52 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,14 +406,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		88E3B8F71E4A19D900478A52 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				88E3B8F81E4A19D900478A52 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		88E3B8FC1E4A19D900478A52 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -413,10 +512,12 @@
 		};
 		88E3B9191E4A19D900478A52 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA3F7A794997E3F7D99E18CF /* Pods-WeightTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 43A7KU2U67;
 				INFOPLIST_FILE = WeightTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alltopafi.WeightTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,10 +527,12 @@
 		};
 		88E3B91A1E4A19D900478A52 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99EEC1C35C64ABEB398073C9 /* Pods-WeightTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 43A7KU2U67;
 				INFOPLIST_FILE = WeightTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alltopafi.WeightTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,6 +617,7 @@
 				88E3B91A1E4A19D900478A52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88E3B91B1E4A19D900478A52 /* Build configuration list for PBXNativeTarget "WeightTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +626,7 @@
 				88E3B91D1E4A19D900478A52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88E3B91E1E4A19D900478A52 /* Build configuration list for PBXNativeTarget "WeightTrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +635,7 @@
 				88E3B9201E4A19D900478A52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
