@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		69AF6A33E072E08B2FBBAFBE /* Pods_WeightTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B652D3C52FD9244A2156EF73 /* Pods_WeightTracker.framework */; };
+		88127FF51E5FA3CF00C3B3C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88127FF41E5FA3CF00C3B3C9 /* TabBarController.swift */; };
+		88127FF71E5FA91F00C3B3C9 /* ProgressGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88127FF61E5FA91F00C3B3C9 /* ProgressGraphController.swift */; };
 		88E3B8F41E4A19D900478A52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B8F31E4A19D900478A52 /* AppDelegate.swift */; };
 		88E3B8F61E4A19D900478A52 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B8F51E4A19D900478A52 /* LoginRegisterViewController.swift */; };
 		88E3B8FB1E4A19D900478A52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E3B8FA1E4A19D900478A52 /* Assets.xcassets */; };
 		88E3B8FE1E4A19D900478A52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E3B8FC1E4A19D900478A52 /* LaunchScreen.storyboard */; };
 		88E3B9091E4A19D900478A52 /* WeightTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B9081E4A19D900478A52 /* WeightTrackerTests.swift */; };
 		88E3B9141E4A19D900478A52 /* WeightTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B9131E4A19D900478A52 /* WeightTrackerUITests.swift */; };
-		88E3B9251E4A1DF100478A52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B9241E4A1DF100478A52 /* ViewController.swift */; };
+		88E3B9251E4A1DF100478A52 /* LogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3B9241E4A1DF100478A52 /* LogController.swift */; };
 		88E75A1F1E4A8600008BCDD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88E75A1E1E4A8600008BCDD2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		8448E8F1A3B3DC774F77C5A8 /* Pods_WeightTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88127FF41E5FA3CF00C3B3C9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		88127FF61E5FA91F00C3B3C9 /* ProgressGraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGraphController.swift; sourceTree = "<group>"; };
 		88E3B8F01E4A19D900478A52 /* WeightTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E3B8F31E4A19D900478A52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88E3B8F51E4A19D900478A52 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +53,7 @@
 		88E3B90F1E4A19D900478A52 /* WeightTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E3B9131E4A19D900478A52 /* WeightTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerUITests.swift; sourceTree = "<group>"; };
 		88E3B9151E4A19D900478A52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88E3B9241E4A1DF100478A52 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88E3B9241E4A1DF100478A52 /* LogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogController.swift; sourceTree = "<group>"; };
 		88E75A1E1E4A8600008BCDD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99EEC1C35C64ABEB398073C9 /* Pods-WeightTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeightTracker/Pods-WeightTracker.release.xcconfig"; sourceTree = "<group>"; };
 		B652D3C52FD9244A2156EF73 /* Pods_WeightTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,13 @@
 				D2A98764AD2660035031BBA2 /* Pods_WeightTrackerUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88127FF81E60A4A800C3B3C9 /* TabItems */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TabItems;
 			sourceTree = "<group>";
 		};
 		88E3B8E71E4A19D900478A52 = {
@@ -166,7 +177,10 @@
 			isa = PBXGroup;
 			children = (
 				88E3B8F51E4A19D900478A52 /* LoginRegisterViewController.swift */,
-				88E3B9241E4A1DF100478A52 /* ViewController.swift */,
+				88127FF41E5FA3CF00C3B3C9 /* TabBarController.swift */,
+				88127FF81E60A4A800C3B3C9 /* TabItems */,
+				88E3B9241E4A1DF100478A52 /* LogController.swift */,
+				88127FF61E5FA91F00C3B3C9 /* ProgressGraphController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -368,7 +382,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88E3B9251E4A1DF100478A52 /* ViewController.swift in Sources */,
+				88127FF71E5FA91F00C3B3C9 /* ProgressGraphController.swift in Sources */,
+				88E3B9251E4A1DF100478A52 /* LogController.swift in Sources */,
+				88127FF51E5FA3CF00C3B3C9 /* TabBarController.swift in Sources */,
 				88E3B8F61E4A19D900478A52 /* LoginRegisterViewController.swift in Sources */,
 				88E3B8F41E4A19D900478A52 /* AppDelegate.swift in Sources */,
 			);

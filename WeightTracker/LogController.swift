@@ -9,7 +9,9 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class LogController: UIViewController {
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
