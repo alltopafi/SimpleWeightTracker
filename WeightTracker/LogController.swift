@@ -15,25 +15,14 @@ class LogController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Log"
         self.view.backgroundColor = .white
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         
-        if FIRAuth.auth()?.currentUser?.uid == nil {
-            perform(#selector(handleLogout), with: nil, afterDelay: 0)
-        }
         
     }
     
-    func handleLogout() {
-        
-        do{
-            try FIRAuth.auth()?.signOut()
-        } catch let firebaseSignoutError {
-            print(firebaseSignoutError)
-        }
-        
-        let loginController = LoginRegisterViewController()
-        present(loginController, animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.title = "Log"
     }
+    
 }

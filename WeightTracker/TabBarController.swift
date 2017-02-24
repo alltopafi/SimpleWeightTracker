@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
@@ -14,6 +15,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        
+        if FIRAuth.auth()?.currentUser?.uid == nil {
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,10 +47,21 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             return
         }
         
-        print("selected \(title)")
+        print(title)
        
     }
     
+    func handleLogout() {
+        
+        do{
+            try FIRAuth.auth()?.signOut()
+        } catch let firebaseSignoutError {
+            print(firebaseSignoutError)
+        }
+        
+        let loginController = LoginRegisterViewController()
+        present(loginController, animated: true, completion: nil)
+    }
     
 }
 

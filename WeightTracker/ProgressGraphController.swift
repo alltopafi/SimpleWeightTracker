@@ -16,6 +16,12 @@ class ProgressGraphController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Progress"
         view.backgroundColor = .red
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.title = "Progress"
+
     }
 }
