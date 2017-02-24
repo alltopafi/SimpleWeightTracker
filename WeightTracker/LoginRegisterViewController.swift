@@ -79,6 +79,12 @@ class LoginRegisterViewController: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, err) in
             if err != nil {
                 print(err!)
+                
+                let alert = UIAlertController(title: "Alert", message: "There was an error logging in. \n Please check your email and password.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                
                 return
             }
             
