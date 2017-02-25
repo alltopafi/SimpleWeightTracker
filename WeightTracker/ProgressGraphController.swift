@@ -22,6 +22,7 @@ class ProgressGraphController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.title = "Progress"
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
 
     }
 }
