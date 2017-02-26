@@ -20,17 +20,22 @@ class LogController: UITableViewController {
         self.title = "Log"
         self.view.backgroundColor = .white
         
-       buildArrayFromDatabase()
+        tableView.register(CustomWeightCell.self, forCellReuseIdentifier: cellId)
+        
+        
+        buildArrayFromDatabase()
         
     }
     
     func buildArrayFromDatabase() {
+        
         
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{
             return
         }
         
         let ref = FIRDatabase.database().reference().child("users").child(uid)
+        
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
@@ -38,9 +43,6 @@ class LogController: UITableViewController {
 
             ref.child("weightLog").observe(.value, with: { snapshot in
                 for child in snapshot.children {
-                    
-                    print(child)
-                    
                     
                     
                     let values = (child as! FIRDataSnapshot).value as? NSDictionary
@@ -68,8 +70,10 @@ class LogController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: cellId)
-        cell.textLabel?.text = array[indexPath.row].weight
+        let cell = CustomWeightCell(style: .default, reuseIdentifier: cellId)
+        cell.textLabel?.text = array[indexPath.row].date
+        cell.detailTextLabel?.text = array[indexPath.row].time
+        cell.weightView.text = array[indexPath.row].weight + " lbs"
         return cell
     }
     
@@ -79,6 +83,10 @@ class LogController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("name: \(array[indexPath.row].name) \ndate: \(array[indexPath.row].date) \ntime: \(array[indexPath.row].time) \nweight: \(array[indexPath.row].weight)")
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65
     }
 
     
@@ -120,27 +128,8 @@ class LogController: UITableViewController {
         let ref = FIRDatabase.database().reference().child("users").child(uid).child("weightLog").childByAutoId()
         
         
-        let refName = FIRDatabase.database().reference().child("users").child(uid)
-        
-        
-        
-        refName.observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let value = snapshot.value as? NSDictionary
-            let name = value?["name"] as? String
-            
-            self.array.append(WeightEntry(name: name!, date: dateResult, time: timeResult, weight: weight))
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-
-            
-        }) { (error) in
-            print(error)
-            return
-        }
-        
+        //need to clear the array to avoid everything being populated in the table twice
+        array.removeAll()
         
         //updates the db with the entered weight
         let values = ["date":dateResult, "time":timeResult, "weight": weight]
@@ -152,9 +141,6 @@ class LogController: UITableViewController {
             }
             
         })
-
-//        array.append(WeightEntry(name: name, date: dateResult, time: timeResult, weight: weight))
-        
         
         
     }
