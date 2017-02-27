@@ -15,5 +15,6 @@ struct WeightEntry {
    var date: String
    var time: String
    var weight: String
+    var key: String
     
 }

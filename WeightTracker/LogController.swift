@@ -50,8 +50,11 @@ class LogController: UITableViewController {
                     let date = values?["date"] as! String
                     let time = values?["time"] as! String
                     let weight = values?["weight"] as! String
+                    let key = (child as! FIRDataSnapshot).key
 
-                    self.array.append(WeightEntry(name: name, date: date, time: time, weight: weight))
+                    self.array.insert(WeightEntry(name: name, date: date, time: time, weight: weight, key: key),at: 0)
+                    
+                    
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -82,11 +85,36 @@ class LogController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("name: \(array[indexPath.row].name) \ndate: \(array[indexPath.row].date) \ntime: \(array[indexPath.row].time) \nweight: \(array[indexPath.row].weight)")
+        print("name: \(array[indexPath.row].name) \ndate: \(array[indexPath.row].date) \ntime: \(array[indexPath.row].time) \nweight: \(array[indexPath.row].weight) \nkey: \(array[indexPath.row].key)")
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+           
+            guard let uid = FIRAuth.auth()?.currentUser?.uid else{
+                return
+            }
+            
+            let key = array[indexPath.row].key
+            
+            let ref =  FIRDatabase.database().reference().child("users").child(uid).child("weightLog").child(key)
+            
+            ref.removeValue()
+            
+            //need to clear the array to avoid everything being populated in the table twice
+            array.removeAll()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+            
+            
+        }
     }
 
     
