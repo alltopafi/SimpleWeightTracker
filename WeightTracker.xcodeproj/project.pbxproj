@@ -538,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA3F7A794997E3F7D99E18CF /* Pods-WeightTracker.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 43A7KU2U67;
 				INFOPLIST_FILE = WeightTracker/Info.plist;
@@ -553,6 +554,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99EEC1C35C64ABEB398073C9 /* Pods-WeightTracker.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 43A7KU2U67;
 				INFOPLIST_FILE = WeightTracker/Info.plist;

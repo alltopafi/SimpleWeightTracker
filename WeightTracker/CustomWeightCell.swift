@@ -26,6 +26,14 @@ class CustomWeightCell: UITableViewCell {
         return tv
     }()
     
+    let topLineView: UITextView = {
+        let tv = UITextView()
+        tv.backgroundColor = .lightGray
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.isEditable = false
+        return tv
+    }()
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -52,6 +60,13 @@ class CustomWeightCell: UITableViewCell {
         lineView.widthAnchor.constraint(equalTo: (textLabel?.widthAnchor)!).isActive = true
         lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
+        
+        addSubview(topLineView)
+        //need x,y,widht,height constraints
+        topLineView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        topLineView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        topLineView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        topLineView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         }
     
     required init?(coder aDecoder: NSCoder) {

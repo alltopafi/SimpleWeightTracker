@@ -12,15 +12,23 @@ import FirebaseDatabase
 
 class LogController: UITableViewController {
     
+    let backgroundColor: UIColor = UIColor(red: 58/255, green: 245/255, blue: 170/255, alpha: 1)
+    let negColor: UIColor = UIColor(red: 236/255, green: 29/255, blue: 56/255, alpha: 0.5)
+    let posColor: UIColor = UIColor(red: 39/255, green: 219/255, blue: 57/255, alpha: 0.5)
     let cellId = "cellId"
     private var array = [WeightEntry]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Log"
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = backgroundColor
         
         tableView.register(CustomWeightCell.self, forCellReuseIdentifier: cellId)
+        
+        let height = self.navigationController!.navigationBar.frame.height
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
         
         
         buildArrayFromDatabase()
@@ -77,6 +85,9 @@ class LogController: UITableViewController {
         cell.textLabel?.text = array[indexPath.row].date
         cell.detailTextLabel?.text = array[indexPath.row].time
         cell.weightView.text = array[indexPath.row].weight + " lbs"
+        cell.backgroundColor = backgroundColor        
+        cell.weightView.backgroundColor = backgroundColor
+        
         return cell
     }
     
