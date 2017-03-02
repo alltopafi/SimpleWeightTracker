@@ -35,6 +35,22 @@ class CustomWeightCell: UITableViewCell {
         return tv
     }()
     
+    let arrowImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFill
+        iv.backgroundColor = .clear
+        return iv
+    }()
+    
+    let weightChangeTextView: UITextView = {
+        let tv = UITextView()
+        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.backgroundColor = .clear
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -68,6 +84,21 @@ class CustomWeightCell: UITableViewCell {
         topLineView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         topLineView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         topLineView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        
+        addSubview(weightChangeTextView)
+        //need x,y,widht,height constraints
+        weightChangeTextView.rightAnchor.constraint(equalTo: weightView.leftAnchor, constant: -12).isActive = true
+        weightChangeTextView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        weightChangeTextView.widthAnchor.constraint(equalToConstant: 65).isActive = true
+        weightChangeTextView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        addSubview(arrowImageView)
+        //need x,y,widht,height constraints
+        arrowImageView.rightAnchor.constraint(equalTo: weightChangeTextView.leftAnchor, constant: -12).isActive = true
+        arrowImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        arrowImageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        arrowImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
         }
     
     required init?(coder aDecoder: NSCoder) {

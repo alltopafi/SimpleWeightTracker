@@ -32,7 +32,6 @@ class LogController: UITableViewController {
 
         backgroundView.layer.insertSublayer(gradient, at: 0)
         self.tableView.backgroundView = backgroundView
-//        self.tableView.layer.insertSublayer(gradient, at: 0)
         
         let height = self.navigationController!.navigationBar.frame.height
         let insets = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
@@ -68,8 +67,9 @@ class LogController: UITableViewController {
                     let time = values?["time"] as! String
                     let weight = values?["weight"] as! String
                     let key = (child as! FIRDataSnapshot).key
+                    let weightChange = values?["weightChange"] as! String
 
-                    self.array.insert(WeightEntry(name: name, date: date, time: time, weight: weight, key: key),at: 0)
+                    self.array.insert(WeightEntry(name: name, date: date, time: time, weight: weight, key: key, weightChange: weightChange),at: 0)
                     
                     
                     
@@ -96,7 +96,18 @@ class LogController: UITableViewController {
         cell.weightView.text = array[indexPath.row].weight + " lbs"
         cell.backgroundColor = .clear
         cell.weightView.backgroundColor = .clear
+        cell.weightChangeTextView.text = array[indexPath.row].weightChange
         
+        if let weightChange = Double(array[indexPath.row].weightChange) {
+            if weightChange != 0.0 {
+                if weightChange > 0.0 {
+                    cell.arrowImageView.image = #imageLiteral(resourceName: "greenArrow")
+                }else {
+                    cell.arrowImageView.image = #imageLiteral(resourceName: "redArrow")
+                }
+            }
+        }
+       
         return cell
     }
     
@@ -105,7 +116,7 @@ class LogController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("name: \(array[indexPath.row].name) \ndate: \(array[indexPath.row].date) \ntime: \(array[indexPath.row].time) \nweight: \(array[indexPath.row].weight) \nkey: \(array[indexPath.row].key)")
+        print("name: \(array[indexPath.row].name) \ndate: \(array[indexPath.row].date) \ntime: \(array[indexPath.row].time) \nweight: \(array[indexPath.row].weight) \nkey: \(array[indexPath.row].key) \nweightChange: \(array[indexPath.row].weightChange)")
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -157,11 +168,28 @@ class LogController: UITableViewController {
     }
     
     func addWeightInputToFirebase(weight: String) {
-        
+        //need to get old weight so we can find the change in weight
         
         guard let uid = FIRAuth.auth()?.currentUser?.uid else{
             return
         }
+        
+        let lastWeight: Double
+        
+        if self.array.count > 0 {
+            lastWeight = Double(self.array[0].weight)!
+        } else {
+            lastWeight = 0.0
+        }
+        
+        let weightChange: Double
+        
+        if lastWeight == 0.0 {
+            weightChange = 0.0
+        }else {
+            weightChange = Double(weight)! - lastWeight
+        }
+        
         
         let date = Date()
         let dateFormat = DateFormatter()
@@ -180,7 +208,7 @@ class LogController: UITableViewController {
         array.removeAll()
         
         //updates the db with the entered weight
-        let values = ["date":dateResult, "time":timeResult, "weight": weight]
+        let values = ["date":dateResult, "time":timeResult, "weight": weight, "weightChange": String(weightChange)]
         ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
             
             if err != nil {

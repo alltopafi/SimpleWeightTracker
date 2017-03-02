@@ -133,8 +133,9 @@ class ProgressGraphController: UIViewController {
                     let time = values?["time"] as! String
                     let weight = values?["weight"] as! String
                     let key = (child as! FIRDataSnapshot).key
+                    let weightChange = values?["weightChange"] as! String
                     
-                    self.array.append(WeightEntry(name: name, date: date, time: time, weight: weight, key: key))
+                    self.array.append(WeightEntry(name: name, date: date, time: time, weight: weight, key: key, weightChange: weightChange))
                     
                     self.buildChartFromArray()
                     

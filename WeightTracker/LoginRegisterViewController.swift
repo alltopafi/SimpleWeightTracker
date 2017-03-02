@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 
-class LoginRegisterViewController: UIViewController {
+class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
 
     let inputsContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .lightGray
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -22,9 +22,9 @@ class LoginRegisterViewController: UIViewController {
     
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(red: 32/255, green: 216/255, blue: 132/255, alpha: 1)
+        button.backgroundColor = .darkGray//UIColor(red: 32/255, green: 216/255, blue: 132/255, alpha: 1)
         button.setTitle("Register", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.lightGray, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
@@ -33,7 +33,8 @@ class LoginRegisterViewController: UIViewController {
     
     let loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
-        sc.tintColor = .white
+        sc.tintColor = .black
+        sc.backgroundColor = .lightGray
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleRegisterChange), for: .valueChanged)
         sc.translatesAutoresizingMaskIntoConstraints = false
@@ -127,51 +128,59 @@ class LoginRegisterViewController: UIViewController {
         
     }
     
-    let nameTextField: UITextField = {
+    lazy var nameTextField: UITextField = {
        let tf = UITextField()
         tf.placeholder = "Name"
+        tf.backgroundColor = .lightGray
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.delegate = self
         return tf
     }()
     
     let nameSeperatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 200/225, green: 200/225, blue: 200/225, alpha: 1)
+        view.backgroundColor = .darkGray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let emailTextField: UITextField = {
+    lazy var emailTextField: UITextField = {
         let tf = UITextField()
+        tf.backgroundColor = .lightGray
         tf.placeholder = "Email address"
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.delegate = self
         return tf
     }()
     
     let emailSeperatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 200/225, green: 200/225, blue: 200/225, alpha: 1)
+        view.backgroundColor = .darkGray//UIColor(red: 200/225, green: 200/225, blue: 200/225, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let tf = UITextField()
+        tf.backgroundColor = .lightGray
         tf.placeholder = "Password"
         tf.isSecureTextEntry = true
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.delegate = self
         return tf
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        observeKeyboardNotifications()
+        
         let gradient = CAGradientLayer()
         gradient.frame = self.view.bounds
         gradient.colors = [UIColor(red: 82/255, green: 245/255, blue: 76/255, alpha: 1).cgColor, UIColor(red: 58/255, green: 245/255, blue: 170/255, alpha: 1).cgColor, UIColor.black.cgColor]
         
         self.view.layer.insertSublayer(gradient, at: 0)
-
+        
        
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
@@ -256,6 +265,40 @@ class LoginRegisterViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    fileprivate func observeKeyboardNotifications() {
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown), name: .UIKeyboardDidShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHidden), name: .UIKeyboardDidHide, object: nil)
+    
+    }
+    
+    func keyboardShown(notification: NSNotification) {
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+         self.view.frame = CGRect(x: 0, y: -75, width: self.view.frame.width, height: self.view.frame.height)
+          
+        }, completion: nil)
+    }
+    
+    func keyboardHidden() {
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+        }, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
     }
 }
 
