@@ -166,8 +166,12 @@ class LoginRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(red: 167/255, green: 242/255, blue: 214/255, alpha: 1)
+        let gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [UIColor(red: 82/255, green: 245/255, blue: 76/255, alpha: 1).cgColor, UIColor(red: 58/255, green: 245/255, blue: 170/255, alpha: 1).cgColor, UIColor.black.cgColor]
         
+        self.view.layer.insertSublayer(gradient, at: 0)
+
        
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)

@@ -12,6 +12,7 @@ class CustomWeightCell: UITableViewCell {
     
     let weightView: UITextView = {
         let tv = UITextView()
+        tv.backgroundColor = .clear
         tv.font = UIFont.systemFont(ofSize: 16)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.isEditable = false

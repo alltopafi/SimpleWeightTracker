@@ -26,7 +26,14 @@ class ProgressGraphController: UIViewController {
         super.viewDidLoad()
         self.array.removeAll()
         self.title = "Progress"
-        self.view.backgroundColor = UIColor(red: 58/255, green: 245/255, blue: 170/255, alpha: 1)
+//        self.view.backgroundColor = UIColor(red: 58/255, green: 245/255, blue: 170/255, alpha: 1)
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [UIColor(red: 82/255, green: 245/255, blue: 76/255, alpha: 1).cgColor, UIColor(red: 58/255, green: 245/255, blue: 170/255, alpha: 1).cgColor, UIColor.black.cgColor]
+        
+        self.view.layer.insertSublayer(gradient, at: 0)
+        
         setupChart()
         
     }
@@ -78,6 +85,7 @@ class ProgressGraphController: UIViewController {
         set1.setCircleColor(.blue) // our circle will be dark red
         set1.lineWidth = 2.0
         set1.circleRadius = 6.0 // the radius of the node circle
+        set1.circleHoleColor = .blue
         set1.fillAlpha = 65 / 255.0
         set1.fillColor = .blue
         set1.highlightColor = UIColor.white

@@ -21,9 +21,18 @@ class LogController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Log"
-        self.view.backgroundColor = backgroundColor
+        self.view.backgroundColor = .clear
         
         tableView.register(CustomWeightCell.self, forCellReuseIdentifier: cellId)
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = self.tableView.bounds
+        let backgroundView = UIView(frame: self.tableView.bounds)
+        gradient.colors = [UIColor(red: 82/255, green: 245/255, blue: 76/255, alpha: 1).cgColor, UIColor(red: 58/255, green: 245/255, blue: 170/255, alpha: 1).cgColor, UIColor.black.cgColor]
+
+        backgroundView.layer.insertSublayer(gradient, at: 0)
+        self.tableView.backgroundView = backgroundView
+//        self.tableView.layer.insertSublayer(gradient, at: 0)
         
         let height = self.navigationController!.navigationBar.frame.height
         let insets = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
@@ -85,8 +94,8 @@ class LogController: UITableViewController {
         cell.textLabel?.text = array[indexPath.row].date
         cell.detailTextLabel?.text = array[indexPath.row].time
         cell.weightView.text = array[indexPath.row].weight + " lbs"
-        cell.backgroundColor = backgroundColor        
-        cell.weightView.backgroundColor = backgroundColor
+        cell.backgroundColor = .clear
+        cell.weightView.backgroundColor = .clear
         
         return cell
     }
