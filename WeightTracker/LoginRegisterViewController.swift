@@ -11,6 +11,16 @@ import Firebase
 
 class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
 
+    let logoImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = #imageLiteral(resourceName: "logo")
+        iv.layer.cornerRadius = 75
+        iv.layer.masksToBounds = true
+        iv.contentMode = .scaleToFill
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
+    
     let inputsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .lightGray
@@ -185,11 +195,21 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(loginRegisterSegmentedControl)
+        view.addSubview(logoImageView)
         
         setupInputsContainer()
         setupLoginRegisterButton()
         setupLoginRegisterSegmentedControl()
+        setupLogoImageView()
         
+    }
+    
+    func setupLogoImageView() {
+        //need x,y,width,height
+        logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -15).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
     func setupLoginRegisterSegmentedControl() {

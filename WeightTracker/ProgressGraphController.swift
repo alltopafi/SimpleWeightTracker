@@ -22,6 +22,41 @@ class ProgressGraphController: UIViewController {
         return lc
     }()
     
+    let headerView: UIView = {
+        let hv = UIView()
+        hv.backgroundColor = .black
+        hv.translatesAutoresizingMaskIntoConstraints = false
+        return hv
+    }()
+    
+    let leadTextView: UILabel = {
+        let tv = UILabel()
+        tv.textAlignment = .right
+        tv.text = "Overall weight change is "
+        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.backgroundColor = .clear
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
+    let totalChangeTextField: UILabel = {
+        let tv = UILabel()
+        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.textAlignment = .left
+        tv.backgroundColor = .clear
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
+    let arrowImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFill
+        iv.backgroundColor = .clear
+        return iv
+    }()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.array.removeAll()
@@ -34,8 +69,44 @@ class ProgressGraphController: UIViewController {
         
         self.view.layer.insertSublayer(gradient, at: 0)
         
+        setupHeader()
         setupChart()
         
+        
+    }
+    
+    func setupHeader() {
+        
+        self.view.addSubview(headerView)
+        //        //need x,y,width,height
+        headerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
+//        headerView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+//        headerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
+        headerView.addSubview(leadTextView)
+//        //need x,y,width,height
+        leadTextView.leftAnchor.constraint(equalTo: headerView.leftAnchor).isActive = true
+        leadTextView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        leadTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        leadTextView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+
+        headerView.addSubview(arrowImageView)
+        //need x,y,width, height
+        arrowImageView.leftAnchor.constraint(equalTo: leadTextView.rightAnchor, constant: 8).isActive = true
+        arrowImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        arrowImageView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        arrowImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        headerView.addSubview(totalChangeTextField)
+        //need x,y,width,height
+        totalChangeTextField.leftAnchor.constraint(equalTo: arrowImageView.rightAnchor, constant: 8).isActive = true
+        totalChangeTextField.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        totalChangeTextField.rightAnchor.constraint(equalTo: headerView.rightAnchor).isActive = true
+        totalChangeTextField.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+
     }
     
     
@@ -48,10 +119,21 @@ class ProgressGraphController: UIViewController {
         self.view.addSubview(lineChartView)
         //need x,y,width,height
         lineChartView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        lineChartView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        lineChartView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10).isActive = true
         lineChartView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         lineChartView.heightAnchor.constraint(equalToConstant: 400).isActive = true
         
+    }
+    
+    func findWeightChange() -> String {
+        
+        var weightChangeTotal: Double = 0.0
+        
+        for i in 0..<array.count {
+            weightChangeTotal += Double(array[i].weightChange)!
+        }
+        
+        return String(weightChangeTotal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,6 +187,19 @@ class ProgressGraphController: UIViewController {
         self.lineChartView.data = data
         self.lineChartView.xAxis.drawLabelsEnabled = false
         self.lineChartView.chartDescription?.text = ""
+        
+        let totalWeightChange: String = findWeightChange()
+        
+        totalChangeTextField.text = totalWeightChange + " lbs"
+        
+        if Double(totalWeightChange)! != 0.0 {
+            if Double(totalWeightChange)! > 0.0 {
+                arrowImageView.image = #imageLiteral(resourceName: "greenArrow")
+            }else {
+                arrowImageView.image = #imageLiteral(resourceName: "redArrow")
+            }
+        }
+        
         
     }
    

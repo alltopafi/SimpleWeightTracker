@@ -153,7 +153,7 @@ class LogController: UITableViewController {
         var weight: String = ""
         let alert = UIAlertController(title: "Input", message: "Enter Weight", preferredStyle: .alert)
         alert.addTextField { (textField) in
-            
+            textField.keyboardType = .decimalPad
         }
         
         
